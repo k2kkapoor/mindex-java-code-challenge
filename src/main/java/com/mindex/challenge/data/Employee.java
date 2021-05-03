@@ -2,7 +2,13 @@ package com.mindex.challenge.data;
 
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Employee {
+	@Id
     private String employeeId;
     private String firstName;
     private String lastName;
@@ -21,6 +27,7 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
+    
     public String getFirstName() {
         return firstName;
     }
