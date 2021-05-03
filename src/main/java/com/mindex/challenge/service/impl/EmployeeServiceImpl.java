@@ -62,7 +62,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     	Employee employee = read(id);
     	int numberOfReports = getNumberOfReports(employee);
     	
-    	//Clearing HashSet so that no residual values remain;
+    	//Clearing HashSet so that no residual values remain.
     	uniqueEmployeeID.clear();
     	
     	ReportingStructure report = new ReportingStructure(employee, numberOfReports);
