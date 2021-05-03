@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mindex.challenge.data.Compensation;
 import com.mindex.challenge.service.CompensationService;
 
+
+//Task 2
+
 @RestController
 public class CompensationController {
 

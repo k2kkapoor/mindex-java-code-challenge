@@ -1,6 +1,6 @@
 package com.mindex.challenge.data;
 
-
+//Task 1
 public class ReportingStructure {
 	private Employee employee;
 	private int numberOfReports;

@@ -11,6 +11,8 @@ import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.service.CompensationService;
 import com.mindex.challenge.service.EmployeeService;
 
+//Task 2
+
 @Service
 public class CompensationServiceImpl implements CompensationService {
 

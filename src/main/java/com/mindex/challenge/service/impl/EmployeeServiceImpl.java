@@ -53,7 +53,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.save(employee);
     }
     
-    
+    //Task 1 Getting the number of distinct reporting employee.
     
     @Override
 	public ReportingStructure reports(String id) {
@@ -80,6 +80,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 		
 		for(Employee emp : employeeReports) {
+			
 			/* 1. Storing unique ID so that no person is counted more than once in the reporting count. For the case 
 			 * 
 			 * 
@@ -91,14 +92,14 @@ public class EmployeeServiceImpl implements EmployeeService {
             
             	Here Pete Best would be counted once for John Lennon's reporting employees 
             	
-            	2. We have to keep cycle in check such as if George Harrison has John Lenon as direct report then it would lead to
+            	2. We have to keep cycle in check such as if George Harrison has John Lennon as direct report then it would lead to
             	a cycle.
 			 */
 			 
 			uniqueEmployeeID.add(emp.getEmployeeId());
 			try {
 				
-				//Recursively calling the getNumberOfReports function to get number of reports for each reporting ID.
+				// Calling the getNumberOfReports function to get number of reports for each reporting ID.
 				getNumberOfReports(read(emp.getEmployeeId()));
 				
 			}catch(RuntimeException exception){

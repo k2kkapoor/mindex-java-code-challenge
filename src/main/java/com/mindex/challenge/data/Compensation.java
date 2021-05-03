@@ -3,6 +3,12 @@ package com.mindex.challenge.data;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 public class Compensation {
+	
+	/* 
+	 * Though Task 2 didn't mention the format for effectivedate.
+	 * Have taken String for demonstration purpose but better would be to take calendar object.
+	 * */
+	
 	@DBRef
 	private Employee employee;
 	private String salary;
