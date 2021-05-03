@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "a6cfec43-544d-46cb-8300-546e9406aadf",
+		"name": "Test Mindex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Reports GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//localhost:8088/employee/reports/16a596ae-edd3-4847-99fe-c4518e82c86f",
+							"let jsonData = pm.response.json()",
+							"",
+							"pm.test(\"TestReport\", function () { ",
+							"        let response = pm.response.json();",
+							"        pm.expect(response).to.have.ownProperty(\"numberOfReports\");",
+							"        pm.expect(response.numberOfReports).to.equal(4);//",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8088/employee/reports/16a596ae-edd3-4847-99fe-c4518e82c86f",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"employee",
+						"reports",
+						"16a596ae-edd3-4847-99fe-c4518e82c86f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compensation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//localhost:8088/compensation/16a596ae-edd3-4847-99fe-c4518e82c86f",
+							"//Run POST Compensation first to get a value.",
+							"let jsonData = pm.response.json()",
+							"",
+							"pm.test(\"TestReport\", function () { ",
+							"        let response = pm.response.json();",
+							"        pm.expect(response).to.have.ownProperty(\"salary\");",
+							"        pm.expect(response.salary).to.equal(\"3000\");",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8088/compensation/b7839309-3348-463b-a7e3-5de1c168beb3",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"compensation",
+						"b7839309-3348-463b-a7e3-5de1c168beb3"
+					]
+				},
+				"description": "Once Compensation is Created to read that compensation"
+			},
+			"response": []
+		},
+		{
+			"name": "Compensation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//localhost:8088/compensation",
+							"//Run POST Compensation first to get a value for GET Compensation request.",
+							"let jsonData = pm.response.json()",
+							"",
+							"pm.test(\"TestReport\", function () { ",
+							"        let response = pm.response.json();",
+							"        pm.expect(response).to.have.ownProperty(\"effectiveDate\");",
+							"        pm.expect(response.effectiveDate).to.equal(\"02/21/2021\");",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"employee\": {\n    \"employeeId\" : \"b7839309-3348-463b-a7e3-5de1c168beb3\"\n  },\n  \"salary\":\"3000\",\n  \"effectiveDate\" :\"02/21/2021\"\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8088/compensation",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"compensation"
+					]
+				},
+				"description": "To Create a Compensation."
+			},
+			"response": []
+		}
+	]
+}
